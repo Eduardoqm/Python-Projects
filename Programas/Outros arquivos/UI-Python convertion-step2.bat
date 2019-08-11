@@ -1,0 +1,1 @@
+python -m PyQt5.uic.pyuic -x projeto.ui -o projeto.py
