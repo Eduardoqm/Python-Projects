@@ -5,7 +5,12 @@
 from random import randint
 import os
 import time
-  
+import winsound
+#import sys
+
+os.chdir('C:\\Users\\Eduardo Q Marques\\Documents\\My Jobs\\Programas\\Python\\Python-Projects\\EQM - Games\\Adventure RPG Project\\Sounds')  
+winsound.PlaySound('picollo2.wav', winsound.SND_ASYNC)
+
 print("=========================================")
 print("...........##............................")
 print(".....##################################..")
@@ -21,6 +26,7 @@ print("=========================================")
 print("Todos os comandos devem ser ecritos em letra minusculas.")
 print("Use sua imaginação!")
 time.sleep(5)
+winsound.PlaySound('picollo2.wav',winsound.SND_LOOP + winsound.SND_ASYNC)
 
 #Important functions
 def erro():
