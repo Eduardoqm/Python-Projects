@@ -40,13 +40,13 @@ val_nt.grid(row=1, column=4)
 addbt = Button(master, text='Add', command=add)
 addbt.grid(row=1, column=6)
 
-addbt = Button(master, text='Add', command=add)
-addbt.grid(row=1, column=6)
+salvebt = Button(master, text='Salve', command=salve)
+salvebt.grid(row=2, column=1)
 
-addbt = Button(master, text='Add', command=add)
-addbt.grid(row=1, column=6)
+openbt = Button(master, text='Open', command=opn)
+openbt.grid(row=3, column=1)
 
-addbt = Button(master, text='Add', command=add)
-addbt.grid(row=1, column=6)
+newbt = Button(master, text='New', command=new)
+newbt.grid(row=4, column=1)
 
 master.mainloop()
