@@ -29,7 +29,7 @@ def new():
 #Window
 master = Tk()
 master.title('Calculadora de notas - Beta')
-master.geometry('700x300+0+0') #L,A
+master.geometry('700x250+0+0') #L,A
 
 #Labels (texts)
 Label(master, text='Category').grid(row=0, column=2) 
@@ -50,10 +50,10 @@ val_nt.grid(row=1, column=5)
 
 #Buttons
 addbt = Button(master, text='Add', command=add)
-addbt.grid(row=0, column=6, columnspan=3)
+addbt.grid(row=3, column=2, columnspan=2)
 
 salvebt = Button(master, text='Salve', command=salve)
-salvebt.grid(row=1, column=6)
+salvebt.grid(row=3, column=3, columnspan=2)
 
 openbt = Button(master, text='Open', command=opn)
 openbt.grid(row=0, column=1)
