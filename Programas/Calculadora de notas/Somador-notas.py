@@ -26,11 +26,11 @@ def opn():
     print (df)
 
 def new():
-    df =  pd.DataFrame({'category':['alimento', 'transpote'],
-        'number_id':[123123123, 12312312321],
-        'date':['12/06/2019', '13/08/2019'],
-        'values':[23.19, 800.03],
-        'notes':['nada', 'onibus']
+    df =  pd.DataFrame({'category':[],
+        'number_id':[],
+        'date':[],
+        'values':[],
+        'notes':[]
         })
 
     export_file_path = filedialog.asksaveasfilename(defaultextension='.csv')
