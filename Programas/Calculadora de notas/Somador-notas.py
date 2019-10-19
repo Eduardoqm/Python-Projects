@@ -9,10 +9,7 @@ from pandas import DataFrame
 from tkinter import *
 from tkinter import filedialog
 
-#Functions
-def add():
-    a=1
- 
+#Functions 
 def opn():
     global df
     import_file_path = filedialog.askopenfilename()
@@ -40,6 +37,18 @@ def expbt():
     df.to_csv (export_file_path, index = None, header=True)
 
 def printbt():
+    print(df)
+    display(df, metadata=dict(dock=True))
+
+def add():
+    df_input = pd.DataFrame({'category':[cat_nt.get()],
+        'number_id':[float(n_nt.get())],
+        'date':[data_nt.get()],
+        'values':[float(val_nt.get())],
+        'notes':[note_nt.get()]
+        })
+    print(df_input)
+    pd.concat([df, df_input], ignore_index=True, join_axes=[df.columns])
     print(df)
 
 #Window
