@@ -10,15 +10,9 @@ from tkinter import *
 from tkinter import filedialog
 
 #Functions
-path = ()
 def add():
-    a=float(e1.get())
-    b=17.07
-    c = a + b
-    Label(master, text='                                ',).grid(row=3, column=1, columnspan=5)
-    Label(master, text=c,).grid(row=3, column=1, columnspan=5)
-    b = c
-
+    a=1
+ 
 def opn():
     global df
     import_file_path = filedialog.askopenfilename()
@@ -45,6 +39,8 @@ def expbt():
     export_file_path = filedialog.asksaveasfilename(defaultextension='.csv')
     df.to_csv (export_file_path, index = None, header=True)
 
+def printbt():
+    print(df)
 
 #Window
 master = Tk()
@@ -57,7 +53,6 @@ Label(master, text='Number ID').grid(row=0, column=3)
 Label(master, text='Date').grid(row=0, column=4) 
 Label(master, text='Value').grid(row=0, column=5)
 Label(master, text='Notes').grid(row=0, column=6)  
-result = Label(master, text='').grid(row=3, column=5) 
 
 #Inputs
 cat_nt = Entry(master) 
@@ -86,5 +81,8 @@ newbt.grid(row=1, column=1)
 
 expbt = Button(master, text='Export', command=expbt)
 expbt.grid(row=2, column=1)
+
+printbt = Button(master, text='Report of dispends', command=printbt)
+printbt.grid(row=9, column=3)
 
 master.mainloop()
