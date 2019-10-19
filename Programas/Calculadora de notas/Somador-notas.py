@@ -47,8 +47,8 @@ def add():
         'values':[float(val_nt.get())],
         'notes':[note_nt.get()]
         })
-    print(df_input)
-    pd.concat([df, df_input], ignore_index=False)
+    pd.concat([df, df_input])
+    print('======================================')
     print(df)
 
 #Window
