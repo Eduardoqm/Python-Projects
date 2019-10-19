@@ -7,6 +7,7 @@ Created on Sun Aug  4 18:28:43 2019
 import pandas as pd
 from pandas import DataFrame
 from tkinter import *
+from tkinter import filedialog
 
 #Functions
 path = ()
@@ -19,18 +20,25 @@ def add():
     b = c
 
 def opn():
-    a=float(e1.get())
-
-def salve():
-    df = DataFrame(df, columns= ['category', 'number_id', 'date', 'values', 'notes'])
+    global df
+    import_file_path = filedialog.askopenfilename()
+    df = pd.read_csv (import_file_path)
     print (df)
 
 def new():
-    df = {'category':['alimento'], 'number_id':['123123123'], 'date':['12/06/2019'], 'values':['23.19'], 'notes':['nada']}
+    cupon = {'category':['alimento'],
+        'number_id':[123123123],
+        'date':['12/06/2019'],
+        'values':[23.19],
+        'notes':['nada']
+        }
+
+def salve():
+    df = DataFrame(cupon, columns= ['category', 'number_id', 'date', 'values', 'notes'])
     print (df)
 
 def expbt():
-    global df 
+    global df
     export_file_path = filedialog.asksaveasfilename(defaultextension='.csv')
     df.to_csv (export_file_path, index = None, header=True)
 
@@ -73,7 +81,7 @@ openbt.grid(row=0, column=1)
 newbt = Button(master, text='New', command=new)
 newbt.grid(row=1, column=1)
 
-expbt = Button(master, text='Export', command=new)
+expbt = Button(master, text='Export', command=expbt)
 expbt.grid(row=2, column=1)
 
 master.mainloop()
