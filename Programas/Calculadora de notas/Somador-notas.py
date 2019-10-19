@@ -23,7 +23,10 @@ def salve():
     a=float(e1.get())
 
 def new():
-    a=float(e1.get())
+    a_df = 'category', 'number_id', 'date', 'values', 'notes'
+
+def expbt():
+    export = a_df
 
 
 #Window
@@ -35,7 +38,8 @@ master.geometry('700x250+0+0') #L,A
 Label(master, text='Category').grid(row=0, column=2) 
 Label(master, text='Number ID').grid(row=0, column=3) 
 Label(master, text='Date').grid(row=0, column=4) 
-Label(master, text='Value').grid(row=0, column=5) 
+Label(master, text='Value').grid(row=0, column=5)
+Label(master, text='Notes').grid(row=0, column=6)  
 result = Label(master, text='').grid(row=3, column=5) 
 
 #Inputs
@@ -46,7 +50,9 @@ n_nt.grid(row=1, column=3)
 data_nt = Entry(master)
 data_nt.grid(row=1, column=4)
 val_nt = Entry(master)  
-val_nt.grid(row=1, column=5) 
+val_nt.grid(row=1, column=5)
+note_nt = Entry(master)  
+note_nt.grid(row=1, column=6) 
 
 #Buttons
 addbt = Button(master, text='Add', command=add)
@@ -60,5 +66,8 @@ openbt.grid(row=0, column=1)
 
 newbt = Button(master, text='New', command=new)
 newbt.grid(row=1, column=1)
+
+expbt = Button(master, text='Export', command=new)
+expbt.grid(row=2, column=1)
 
 master.mainloop()
