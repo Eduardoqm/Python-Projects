@@ -4,10 +4,12 @@ Created on Sun Aug  4 18:28:43 2019
 
 @author: Eduardo Q Marques
 """
-
+import pandas as pd
+from pandas import DataFrame
 from tkinter import *
 
 #Functions
+path = 
 def add():
     a=float(e1.get())
     b=17.07
@@ -20,10 +22,12 @@ def opn():
     a=float(e1.get())
 
 def salve():
-    a=float(e1.get())
+    df = DataFrame(a_df, columns= ['category', 'number_id', 'date', 'values', 'notes'])
+    print (df)
 
 def new():
-    a_df = 'category', 'number_id', 'date', 'values', 'notes'
+    a_df = {'category':[], 'number_id':[], 'date':[], 'values':[], 'notes':[]}
+    print (a_df)
 
 def expbt():
     export = a_df
