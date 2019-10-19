@@ -28,8 +28,9 @@ def new():
     df.to_csv (export_file_path, index = None, header=True)
 
 def salve():
-    df = DataFrame(cupon, columns= ['category', 'number_id', 'date', 'values', 'notes'])
-    print (df)
+    df_master
+    export_file_path = filedialog.asksaveasfilename(defaultextension='.csv')
+    df.to_csv (export_file_path, index = None, header=True)
 
 def expbt():
     global df
@@ -47,9 +48,10 @@ def add():
         'values':[float(val_nt.get())],
         'notes':[note_nt.get()]
         })
-    pd.concat([df, df_input])
-    print('======================================')
-    print(df)
+
+    df_add = [df, df_input]
+    df_master = pd.concat(df_add)
+    print(df_master)
 
 #Window
 master = Tk()
