@@ -48,7 +48,7 @@ def add():
         'notes':[note_nt.get()]
         })
     print(df_input)
-    pd.concat([df, df_input], ignore_index=True, join_axes=[df.columns])
+    pd.concat([df, df_input], ignore_index=False)
     print(df)
 
 #Window
