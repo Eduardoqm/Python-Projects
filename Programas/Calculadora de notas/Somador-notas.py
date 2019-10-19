@@ -26,12 +26,15 @@ def opn():
     print (df)
 
 def new():
-    cupon = {'category':['alimento'],
-        'number_id':[123123123],
-        'date':['12/06/2019'],
-        'values':[23.19],
-        'notes':['nada']
-        }
+    df =  pd.DataFrame({'category':['alimento', 'transpote'],
+        'number_id':[123123123, 12312312321],
+        'date':['12/06/2019', '13/08/2019'],
+        'values':[23.19, 800.03],
+        'notes':['nada', 'onibus']
+        })
+
+    export_file_path = filedialog.asksaveasfilename(defaultextension='.csv')
+    df.to_csv (export_file_path, index = None, header=True)
 
 def salve():
     df = DataFrame(cupon, columns= ['category', 'number_id', 'date', 'values', 'notes'])
