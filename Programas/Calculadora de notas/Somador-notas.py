@@ -9,7 +9,7 @@ from pandas import DataFrame
 from tkinter import *
 
 #Functions
-path = 
+path = ()
 def add():
     a=float(e1.get())
     b=17.07
@@ -22,15 +22,17 @@ def opn():
     a=float(e1.get())
 
 def salve():
-    df = DataFrame(a_df, columns= ['category', 'number_id', 'date', 'values', 'notes'])
+    df = DataFrame(df, columns= ['category', 'number_id', 'date', 'values', 'notes'])
     print (df)
 
 def new():
-    a_df = {'category':[], 'number_id':[], 'date':[], 'values':[], 'notes':[]}
-    print (a_df)
+    df = {'category':['alimento'], 'number_id':['123123123'], 'date':['12/06/2019'], 'values':['23.19'], 'notes':['nada']}
+    print (df)
 
 def expbt():
-    export = a_df
+    global df 
+    export_file_path = filedialog.asksaveasfilename(defaultextension='.csv')
+    df.to_csv (export_file_path, index = None, header=True)
 
 
 #Window
