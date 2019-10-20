@@ -8,6 +8,7 @@ import pandas as pd
 from pandas import DataFrame
 from tkinter import *
 from tkinter import filedialog
+from tkinter.filedialog import asksaveasfile 
 
 #Functions 
 def opn():
@@ -28,9 +29,12 @@ def new():
     df.to_csv (export_file_path, index = None, header=True)
 
 def salve():
-    global df
-    df = df_master
-    print(df)
+    global filename 
+    t=text.get(0.0,END) 
+    f=open(filename,'w') 
+    f.write(t) 
+    print(f) 
+    f.close()
 
 def expbt():
     global df
