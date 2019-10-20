@@ -28,6 +28,7 @@ def new():
     df.to_csv (export_file_path, index = None, header=True)
 
 def salve():
+    global df
     df = df_master
     print(df)
 
@@ -41,6 +42,7 @@ def printbt():
     display(df, metadata=dict(dock=True))
 
 def add():
+    global df
     df_input = pd.DataFrame({'category':[cat_nt.get()],
         'number_id':[float(n_nt.get())],
         'date':[data_nt.get()],
@@ -48,9 +50,9 @@ def add():
         'notes':[note_nt.get()]
         })
 
-    #df_add = [df, df_input]
-    #df_master = pd.concat(df_add)
-    df += df_input
+    df_add = [df, df_input]
+    df_master = pd.concat(df_add)
+    df = df_master
     print(df)
 
 #Window
