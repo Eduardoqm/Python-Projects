@@ -28,9 +28,8 @@ def new():
     df.to_csv (export_file_path, index = None, header=True)
 
 def salve():
-    df_master
-    export_file_path = filedialog.asksaveasfilename(defaultextension='.csv')
-    df.to_csv (export_file_path, index = None, header=True)
+    df = df_master
+    print(df)
 
 def expbt():
     global df
