@@ -11,6 +11,8 @@ from tkinter import filedialog
 from tkinter.filedialog import asksaveasfile 
 
 #Functions 
+filename = None 
+
 def opn():
     global df
     import_file_path = filedialog.askopenfilename()
@@ -29,12 +31,9 @@ def new():
     df.to_csv (export_file_path, index = None, header=True)
 
 def salve():
-    global filename 
-    t=text.get(0.0,END) 
-    f=open(filename,'w') 
-    f.write(t) 
-    print(f) 
-    f.close()
+    global df 
+    save_file_path = filedialog.asksaveasfile(defaultextension='.csv')
+    df.to_csv (export_file_path, index = None, header=True)
 
 def expbt():
     global df
