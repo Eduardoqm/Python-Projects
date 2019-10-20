@@ -8,16 +8,14 @@ import pandas as pd
 from pandas import DataFrame
 from tkinter import *
 from tkinter import filedialog
-from tkinter.filedialog import asksaveasfile 
+from tkinter import ttk
 
 #Functions 
-filename = None 
-
 def opn():
     global df
     import_file_path = filedialog.askopenfilename()
     df = pd.read_csv (import_file_path)
-    print (df)
+    Label(master, text = df).grid(row=9, column=1)
 
 def new():
     global df
@@ -33,7 +31,7 @@ def new():
 
     import_file_path = filedialog.askopenfilename()
     df = pd.read_csv (import_file_path)
-    print (df)
+    Label(master, text = df).grid(row=9, column=1)
 
 def salve():
     global df
@@ -44,10 +42,6 @@ def expbt():
     global df
     export_file_path = filedialog.asksaveasfilename(defaultextension='.csv')
     df.to_csv (export_file_path, index = None, header=True)
-
-def printbt():
-    print(df)
-    display(df, metadata=dict(dock=True))
 
 def add():
     global df
@@ -61,12 +55,12 @@ def add():
     df_add = [df, df_input]
     df_master = pd.concat(df_add)
     df = df_master
-    print(df)
+    Label(master, text = df).grid(row=9, column=1)
 
 #Window
 master = Tk()
 master.title('Calculadora de notas - Beta')
-master.geometry('700x250+0+0') #L,A
+master.geometry('1000x650+0+0') #L,A
 
 #Labels (texts)
 Label(master, text='Category').grid(row=0, column=2) 
@@ -102,8 +96,5 @@ newbt.grid(row=1, column=1)
 
 expbt = Button(master, text='Export', command=expbt)
 expbt.grid(row=2, column=1)
-
-printbt = Button(master, text='Report of dispends', command=printbt)
-printbt.grid(row=9, column=3)
 
 master.mainloop()
