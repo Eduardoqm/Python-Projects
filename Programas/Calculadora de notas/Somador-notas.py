@@ -20,6 +20,7 @@ def opn():
     print (df)
 
 def new():
+    global df
     df =  pd.DataFrame({'category':[],
         'number_id':[],
         'date':[],
@@ -30,9 +31,13 @@ def new():
     export_file_path = filedialog.asksaveasfilename(defaultextension='.csv')
     df.to_csv (export_file_path, index = None, header=True)
 
+    import_file_path = filedialog.askopenfilename()
+    df = pd.read_csv (import_file_path)
+    print (df)
+
 def salve():
-    global df 
-    save_file_path = filedialog.asksaveasfile(defaultextension='.csv')
+    global df
+    export_file_path = filedialog.asksaveasfilename(defaultextension='.csv')
     df.to_csv (export_file_path, index = None, header=True)
 
 def expbt():
