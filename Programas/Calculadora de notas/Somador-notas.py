@@ -15,7 +15,7 @@ def opn():
     global df
     import_file_path = filedialog.askopenfilename()
     df = pd.read_csv (import_file_path)
-    Label(master, text = df).grid(row=9, column=7)
+    Label(master, text = df, fg = "black", bg = "white", font = "Verdana 10").grid(row=9, column=7)
 
 def new():
     global df
@@ -31,7 +31,7 @@ def new():
 
     import_file_path = filedialog.askopenfilename()
     df = pd.read_csv (import_file_path)
-    Label(master, text = df).grid(row=9, column=7)
+    Label(master, text = df, fg = "black", bg = "white", font = "Verdana 10").grid(row=9, column=7)
 
 def salve():
     global df
@@ -55,12 +55,12 @@ def add():
     df_add = [df, df_input]
     df_master = pd.concat(df_add)
     df = df_master
-    Label(master, text = df).grid(row=9, column=7)
+    Label(master, text = df, fg = "black", bg = "white", font = "Verdana 10").grid(row=9, column=7)
 
 #Window
 master = Tk()
 master.title('Calculadora de notas - Beta')
-master.geometry('1000x650+0+0') #L,A
+master.geometry('1200x650+0+0') #L,A
 
 #Labels (texts)
 Label(master, text='Category').grid(row=0, column=2) 
