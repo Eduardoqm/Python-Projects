@@ -89,12 +89,12 @@ salvebt = Button(master, text='Salve', command=salve)
 salvebt.grid(row=3, column=3, columnspan=2)
 
 openbt = Button(master, text='Open', command=opn)
-openbt.grid(row=0, column=1)
+openbt.grid(row=0, column=7)
 
 newbt = Button(master, text='New', command=new)
-newbt.grid(row=1, column=1)
+newbt.grid(row=1, column=7)
 
 expbt = Button(master, text='Export', command=expbt)
-expbt.grid(row=2, column=1)
+expbt.grid(row=2, column=7)
 
 master.mainloop()
