@@ -63,38 +63,38 @@ master.title('Calculadora de notas - Beta')
 master.geometry('1200x650+0+0') #L,A
 
 #Labels (texts)
-Label(master, text='Category').grid(row=0, column=2) 
-Label(master, text='Number ID').grid(row=0, column=3) 
-Label(master, text='Date').grid(row=0, column=4) 
-Label(master, text='Value').grid(row=0, column=5)
-Label(master, text='Notes').grid(row=0, column=6)  
+Label(master, text='Category').grid(row=3, column=1) 
+Label(master, text='Number ID').grid(row=5, column=1) 
+Label(master, text='Date').grid(row=7, column=1) 
+Label(master, text='Value').grid(row=9, column=1)
+Label(master, text='Notes').grid(row=11, column=1)  
 
 #Inputs
 cat_nt = Entry(master) 
-cat_nt.grid(row=1, column=2)
+cat_nt.grid(row=3, column=2)
 n_nt = Entry(master) 
-n_nt.grid(row=1, column=3)
+n_nt.grid(row=5, column=2)
 data_nt = Entry(master)
-data_nt.grid(row=1, column=4)
+data_nt.grid(row=7, column=2)
 val_nt = Entry(master)  
-val_nt.grid(row=1, column=5)
+val_nt.grid(row=9, column=2)
 note_nt = Entry(master)  
-note_nt.grid(row=1, column=6) 
+note_nt.grid(row=11, column=2) 
 
 #Buttons
-addbt = Button(master, text='Add', command=add)
-addbt.grid(row=3, column=2, columnspan=2)
-
-salvebt = Button(master, text='Salve', command=salve)
-salvebt.grid(row=3, column=3, columnspan=2)
-
 openbt = Button(master, text='Open', command=opn)
-openbt.grid(row=0, column=7)
+openbt.grid(row=3, column=7)
 
 newbt = Button(master, text='New', command=new)
-newbt.grid(row=1, column=7)
+newbt.grid(row=5, column=7)
 
 expbt = Button(master, text='Export', command=expbt)
-expbt.grid(row=2, column=7)
+expbt.grid(row=7, column=7)
+
+addbt = Button(master, text='Add', command=add)
+addbt.grid(row=9, column=7, columnspan=2)
+
+salvebt = Button(master, text='Salve', command=salve)
+salvebt.grid(row=11, column=7, columnspan=2)
 
 master.mainloop()
