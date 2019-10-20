@@ -48,9 +48,10 @@ def add():
         'notes':[note_nt.get()]
         })
 
-    df_add = [df, df_input]
-    df_master = pd.concat(df_add)
-    print(df_master)
+    #df_add = [df, df_input]
+    #df_master = pd.concat(df_add)
+    df += df_input
+    print(df)
 
 #Window
 master = Tk()
