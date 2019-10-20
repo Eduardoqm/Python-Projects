@@ -15,7 +15,8 @@ def opn():
     global df
     import_file_path = filedialog.askopenfilename()
     df = pd.read_csv (import_file_path)
-    Label(master, text = df, fg = "black", bg = "white", font = "Verdana 10").grid(row=9, column=7)
+    Label(master, text = df, fg = "black", bg = "white",
+    font = "Verdana 10", justify = LEFT).grid(row=1, column=7)
 
 def new():
     global df
@@ -31,7 +32,8 @@ def new():
 
     import_file_path = filedialog.askopenfilename()
     df = pd.read_csv (import_file_path)
-    Label(master, text = df, fg = "black", bg = "white", font = "Verdana 10").grid(row=9, column=7)
+    Label(master, text = df, fg = "black", bg = "white",
+    font = "Verdana 10", justify = LEFT).grid(row=1, column=7)
 
 def salve():
     global df
@@ -55,7 +57,8 @@ def add():
     df_add = [df, df_input]
     df_master = pd.concat(df_add)
     df = df_master
-    Label(master, text = df, fg = "black", bg = "white", font = "Verdana 10").grid(row=9, column=7)
+    Label(master, text = df, fg = "black", bg = "white",
+    font = "Verdana 10", justify = LEFT).grid(row=1, column=7)
 
 #Window
 master = Tk()
@@ -79,22 +82,22 @@ data_nt.grid(row=7, column=2)
 val_nt = Entry(master)  
 val_nt.grid(row=9, column=2)
 note_nt = Entry(master)  
-note_nt.grid(row=11, column=2) 
+note_nt.grid(row=11, column=2)
 
 #Buttons
 openbt = Button(master, text='Open', command=opn)
-openbt.grid(row=3, column=7)
+openbt.grid(row=3, column=3)
 
 newbt = Button(master, text='New', command=new)
-newbt.grid(row=5, column=7)
+newbt.grid(row=5, column=3)
 
 expbt = Button(master, text='Export', command=expbt)
-expbt.grid(row=7, column=7)
+expbt.grid(row=7, column=3)
 
 addbt = Button(master, text='Add', command=add)
-addbt.grid(row=9, column=7, columnspan=2)
+addbt.grid(row=9, column=3, columnspan=2)
 
 salvebt = Button(master, text='Salve', command=salve)
-salvebt.grid(row=11, column=7, columnspan=2)
+salvebt.grid(row=11, column=3, columnspan=2)
 
 master.mainloop()
