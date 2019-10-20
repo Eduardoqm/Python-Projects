@@ -15,7 +15,7 @@ def opn():
     global df
     import_file_path = filedialog.askopenfilename()
     df = pd.read_csv (import_file_path)
-    Label(master, text = df).grid(row=9, column=1)
+    Label(master, text = df).grid(row=9, column=7)
 
 def new():
     global df
@@ -31,7 +31,7 @@ def new():
 
     import_file_path = filedialog.askopenfilename()
     df = pd.read_csv (import_file_path)
-    Label(master, text = df).grid(row=9, column=1)
+    Label(master, text = df).grid(row=9, column=7)
 
 def salve():
     global df
@@ -55,7 +55,7 @@ def add():
     df_add = [df, df_input]
     df_master = pd.concat(df_add)
     df = df_master
-    Label(master, text = df).grid(row=9, column=1)
+    Label(master, text = df).grid(row=9, column=7)
 
 #Window
 master = Tk()
