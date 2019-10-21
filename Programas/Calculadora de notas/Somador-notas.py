@@ -18,8 +18,8 @@ def opn():
     df = pd.read_csv (import_file_path)
     Label(master, text = df, fg = "black", bg = "white",
     font = "Verdana 10", justify = CENTER).place(relx=.8, rely=.9, anchor=S)
-    res = df.describe()
-    Label(master, text = res, fg = "black", bg = "white",
+    resmax = df.values.max()
+    Label(master, text = resmax, fg = "black", bg = "white",
     font = "Verdana 10", justify = CENTER).place(relx=.3, rely=.9, anchor=S)
 
     
