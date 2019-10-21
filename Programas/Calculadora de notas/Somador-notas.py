@@ -6,9 +6,10 @@ Created on Sun Aug  4 18:28:43 2019
 """
 import pandas as pd
 from pandas import DataFrame
+import matplotlib.pyplot as plt
+import numpy as np
 from tkinter import *
 from tkinter import filedialog
-from tkinter import ttk
 
 #Functions 
 def opn():
@@ -54,12 +55,13 @@ def add():
     df = df_master
     Label(master, text = df, fg = "black", bg = "white",
     font = "Verdana 10", justify = LEFT).place(relx=.8, rely=.9, anchor=S)
+    box = df.boxplot()
+    Label(master, text = box).place(relx=0, rely=.9, anchor=CENTER)
 
 #Window
 master = Tk()
 master.title('Calculadora de notas - Beta')
-#master.geometry('1200x650+0+0') #L,A
-master.geometry(f'{win_width}x{win_height}')
+master.geometry('1250x650+0+0') #L,A
 master.configure(background='snow')
 
 #Labels (texts)
