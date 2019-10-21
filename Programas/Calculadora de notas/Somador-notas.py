@@ -16,7 +16,7 @@ def opn():
     import_file_path = filedialog.askopenfilename()
     df = pd.read_csv (import_file_path)
     Label(master, text = df, fg = "black", bg = "white",
-    font = "Verdana 10", justify = LEFT).place(relx=.5, rely=.2, anchor=CENTER)
+    font = "Verdana 10", justify = LEFT).place(relx=.8, rely=.2, anchor=CENTER)
 
 def new():
     global df
@@ -33,7 +33,7 @@ def new():
     import_file_path = filedialog.askopenfilename()
     df = pd.read_csv (import_file_path)
     Label(master, text = df, fg = "black", bg = "white",
-    font = "Verdana 10", justify = LEFT).place(relx=.5, rely=.2, anchor=CENTER)
+    font = "Verdana 10", justify = LEFT).place(relx=.8, rely=.2, anchor=CENTER)
 
 def salve():
     global df
@@ -58,48 +58,50 @@ def add():
     df_master = pd.concat(df_add)
     df = df_master
     Label(master, text = df, fg = "black", bg = "white",
-    font = "Verdana 10", justify = LEFT).place(relx=.5, rely=.2, anchor=CENTER)
+    font = "Verdana 10", justify = LEFT).place(relx=.8, rely=.2, anchor=CENTER)
 
 #Window
 master = Tk()
 master.title('Calculadora de notas - Beta')
 master.geometry('1200x650+0+0') #L,A
+master.configure(background='white')
 
 #Labels (texts)
-Label(master, text='Data Bank', fg = "black", bg = "yellow", font = "Verdana 20 bold").place(relx=.5, rely=.05, anchor=CENTER)
+Label(master, text='                Data Bank               ',
+fg = "black", bg = "yellow", font = "Verdana 15 bold").place(relx=.8, rely=.03, anchor=CENTER)
 
-Label(master, text='Category').grid(row=3, column=1) 
-Label(master, text='Number ID').grid(row=5, column=1) 
-Label(master, text='Date').grid(row=7, column=1) 
-Label(master, text='Value').grid(row=9, column=1)
-Label(master, text='Notes').grid(row=11, column=1)  
+Label(master, text='Category', bg = "white", font = "Verdana 10 bold").grid(row=0, column=2) 
+Label(master, text='Number ID', bg = "white", font = "Verdana 10 bold").grid(row=0, column=3) 
+Label(master, text='Date', bg = "white", font = "Verdana 10 bold").grid(row=0, column=4) 
+Label(master, text='Value', bg = "white", font = "Verdana 10 bold").grid(row=0, column=5)
+Label(master, text='Notes', bg = "white", font = "Verdana 10 bold").grid(row=0, column=6)  
 
 #Inputs
-cat_nt = Entry(master) 
-cat_nt.grid(row=3, column=2)
-n_nt = Entry(master) 
-n_nt.grid(row=5, column=2)
-data_nt = Entry(master)
-data_nt.grid(row=7, column=2)
-val_nt = Entry(master)  
-val_nt.grid(row=9, column=2)
-note_nt = Entry(master)  
-note_nt.grid(row=11, column=2)
+cat_nt = Entry(master, bg = "lavender") 
+cat_nt.grid(row=1, column=2)
+n_nt = Entry(master, bg = "lavender") 
+n_nt.grid(row=1, column=3)
+data_nt = Entry(master, bg = "lavender")
+data_nt.grid(row=1, column=4)
+val_nt = Entry(master, bg = "lavender")  
+val_nt.grid(row=1, column=5)
+note_nt = Entry(master, bg = "lavender")  
+note_nt.grid(row=1, column=6) 
 
 #Buttons
-openbt = Button(master, text='Open', command=opn)
-openbt.grid(row=3, column=3)
+openbt = Button(master, text='Open  ', bg = "white", font = "Verdana 10 bold", command=opn)
+openbt.grid(row=1, column=1)
 
-newbt = Button(master, text='New', command=new)
-newbt.grid(row=5, column=3)
+newbt = Button(master, text='New   ', bg = "white", font = "Verdana 10 bold", command=new)
+newbt.grid(row=0, column=1)
 
-expbt = Button(master, text='Export', command=expbt)
-expbt.grid(row=7, column=3)
+expbt = Button(master, text='Export', bg = "white", font = "Verdana 10 bold", command=expbt)
+expbt.grid(row=2, column=1)
 
-addbt = Button(master, text='Submit', fg = "white", bg = "green", font = "Verdana 10 bold", command=add)
-addbt.grid(row=12, column=2)
+addbt = Button(master, text='  Submit  ', fg = "white", bg = "green", font = "Verdana 10 bold", command=add)
+addbt.place(relx=.52, rely=.1, anchor=CENTER)
 
-salvebt = Button(master, text='Salve', command=salve)
-salvebt.grid(row=11, column=3, columnspan=2)
+salvebt = Button(master, text='   Salve   ', fg = "white", bg = "purple1", font = "Verdana 10 bold", command=salve)
+salvebt.place(relx=.42, rely=.1, anchor=CENTER)
 
 master.mainloop()
