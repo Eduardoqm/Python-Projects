@@ -51,10 +51,12 @@ def add():
         })
 
     df_add = [df, df_input]
-    df_master = pd.concat(df_add)
+    df_master = pd.concat(df_add, ignore_index=True)
     df = df_master
     Label(master, text = df, fg = "black", bg = "white",
     font = "Verdana 10", justify = LEFT).place(relx=.8, rely=.9, anchor=S)
+
+def plott():
     df.plot()
     plt.ylabel('Value')
     box = plt.show()
@@ -68,7 +70,7 @@ master.configure(background='snow')
 
 #Labels (texts)
 Label(master, text='                     Data Bank                    ',
-fg = "black", bg = "red", font = "Verdana 15 bold").place(relx=.8, rely=.95, anchor=CENTER)
+fg = "black", bg = "lavender", font = "Verdana 15 bold").place(relx=.8, rely=.95, anchor=CENTER)
 
 Label(master, text='Category', bg = "white", font = "Verdana 10 bold").grid(row=0, column=2) 
 Label(master, text='Number ID', bg = "white", font = "Verdana 10 bold").grid(row=0, column=3) 
@@ -100,5 +102,8 @@ addbt.place(relx=.52, rely=.1, anchor=CENTER)
 
 salvebt = Button(master, text='   Salve/Export   ', fg = "white", bg = "purple1", font = "Verdana 10 bold", command=salve)
 salvebt.place(relx=.42, rely=.1, anchor=CENTER)
+
+plotbt = Button(master, text='   Plot   ', fg = "white", bg = "blue", font = "Verdana 10 bold", command=plott)
+plotbt.place(relx=.32, rely=.1, anchor=CENTER)
 
 master.mainloop()
