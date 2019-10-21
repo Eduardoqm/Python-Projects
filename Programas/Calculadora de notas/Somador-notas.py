@@ -17,7 +17,12 @@ def opn():
     import_file_path = filedialog.askopenfilename()
     df = pd.read_csv (import_file_path)
     Label(master, text = df, fg = "black", bg = "white",
-    font = "Verdana 10", justify = LEFT).place(relx=.8, rely=.9, anchor=S)
+    font = "Verdana 10", justify = CENTER).place(relx=.8, rely=.9, anchor=S)
+    res = df.describe()
+    Label(master, text = res, fg = "black", bg = "white",
+    font = "Verdana 10", justify = CENTER).place(relx=.3, rely=.9, anchor=S)
+
+    
 
 def new():
     global df
@@ -34,7 +39,7 @@ def new():
     import_file_path = filedialog.askopenfilename()
     df = pd.read_csv (import_file_path)
     Label(master, text = df, fg = "black", bg = "white",
-    font = "Verdana 10", justify = LEFT).place(relx=.8, rely=.9, anchor=S)
+    font = "Verdana 10", justify = CENTER).place(relx=.8, rely=.9, anchor=S)
 
 def salve():
     global df
@@ -45,7 +50,7 @@ def add():
     global df
     df_input = pd.DataFrame({'category':[cat_nt.get()],
         'number_id':[float(n_nt.get())],
-        'date':[data_nt.get()],
+        'date':[float(data_nt.get())],
         'values':[float(val_nt.get())],
         'notes':[note_nt.get()]
         })
@@ -54,7 +59,7 @@ def add():
     df_master = pd.concat(df_add, ignore_index=True)
     df = df_master
     Label(master, text = df, fg = "black", bg = "white",
-    font = "Verdana 10", justify = LEFT).place(relx=.8, rely=.9, anchor=S)
+    font = "Verdana 10", justify = CENTER).place(relx=.8, rely=.9, anchor=S)
 
 def plott():
     df.plot()
@@ -98,12 +103,12 @@ newbt = Button(master, text='New  ', bg = "white", font = "Verdana 10 bold", com
 newbt.grid(row=0, column=1)
 
 addbt = Button(master, text='  Submit  ⇨', fg = "white", bg = "green", font = "Verdana 10 bold", command=add)
-addbt.place(relx=.52, rely=.1, anchor=CENTER)
+addbt.place(relx=.50, rely=.1, anchor=CENTER)
 
 salvebt = Button(master, text='   Salve/Export   ', fg = "white", bg = "purple1", font = "Verdana 10 bold", command=salve)
-salvebt.place(relx=.42, rely=.1, anchor=CENTER)
+salvebt.place(relx=.40, rely=.1, anchor=CENTER)
 
-plotbt = Button(master, text='   Plot   ', fg = "white", bg = "blue", font = "Verdana 10 bold", command=plott)
-plotbt.place(relx=.32, rely=.1, anchor=CENTER)
+plotbt = Button(master, text='Graphic Report', fg = "white", bg = "blue", font = "Verdana 10 bold", command=plott)
+plotbt.place(relx=.29, rely=.1, anchor=CENTER)
 
 master.mainloop()
