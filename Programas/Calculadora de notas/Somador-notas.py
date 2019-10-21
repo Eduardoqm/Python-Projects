@@ -22,11 +22,10 @@ def opn():
     #res = df.loc[df['values'].idxmax()]
     resmax = df['values'].max()
     resmin = df['values'].min()
-    res = ('O valor maximo que você gastou até agora é ', resmax, '\n'
-        'O valor minimo consumido foi', resmin)
-
-    Label(master, text = res, fg = "black", bg = "white",
-    font = "Verdana 15", justify = CENTER).place(relx=.3, rely=.9, anchor=S)
+    Label(master, text = 'O valor maximo gasto até o momento é, ', fg = "black", bg = "white",
+    font = "Verdana 15", justify = LEFT).place(relx=.3, rely=.9, anchor=S)
+    Label(master, text = resmax, fg = "black", bg = "white",
+    font = "Verdana 15 bold", justify = LEFT).place(relx=.5, rely=.9, anchor=S)
 
     
 
