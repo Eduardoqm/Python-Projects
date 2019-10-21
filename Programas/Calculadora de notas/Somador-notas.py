@@ -55,8 +55,10 @@ def add():
     df = df_master
     Label(master, text = df, fg = "black", bg = "white",
     font = "Verdana 10", justify = LEFT).place(relx=.8, rely=.9, anchor=S)
-    box = df.boxplot()
-    Label(master, image = box).place(relx=0, rely=.9, anchor=CENTER)
+    df.plot()
+    plt.ylabel('Value')
+    box = plt.show()
+    Label(master, image = box).place(relx=.8, rely=.9, anchor=CENTER)
 
 #Window
 master = Tk()
