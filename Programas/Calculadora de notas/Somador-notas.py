@@ -18,9 +18,15 @@ def opn():
     df = pd.read_csv (import_file_path)
     Label(master, text = df, fg = "black", bg = "white",
     font = "Verdana 10", justify = CENTER).place(relx=.8, rely=.9, anchor=S)
-    resmax = df.values.max()
-    Label(master, text = resmax, fg = "black", bg = "white",
-    font = "Verdana 10", justify = CENTER).place(relx=.3, rely=.9, anchor=S)
+    #res = df.describe()
+    #res = df.loc[df['values'].idxmax()]
+    resmax = df['values'].max()
+    resmin = df['values'].min()
+    res = ('O valor maximo que você gastou até agora é ', resmax, '\n'
+        'O valor minimo consumido foi', resmin)
+
+    Label(master, text = res, fg = "black", bg = "white",
+    font = "Verdana 15", justify = CENTER).place(relx=.3, rely=.9, anchor=S)
 
     
 
