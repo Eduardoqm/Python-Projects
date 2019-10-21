@@ -16,7 +16,7 @@ def opn():
     import_file_path = filedialog.askopenfilename()
     df = pd.read_csv (import_file_path)
     Label(master, text = df, fg = "black", bg = "white",
-    font = "Verdana 10", justify = LEFT).place(relx=.8, rely=.2, anchor=CENTER)
+    font = "Verdana 10", justify = LEFT).pack(relx=.8, rely=.2, anchor=CENTER)
 
 def new():
     global df
