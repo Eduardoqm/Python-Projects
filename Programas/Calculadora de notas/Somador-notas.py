@@ -40,11 +40,6 @@ def salve():
     export_file_path = filedialog.asksaveasfilename(defaultextension='.csv')
     df.to_csv (export_file_path, index = None, header=True)
 
-def expbt():
-    global df
-    export_file_path = filedialog.asksaveasfilename(defaultextension='.csv')
-    df.to_csv (export_file_path, index = None, header=True)
-
 def add():
     global df
     df_input = pd.DataFrame({'category':[cat_nt.get()],
@@ -63,8 +58,9 @@ def add():
 #Window
 master = Tk()
 master.title('Calculadora de notas - Beta')
-master.geometry('1200x650+0+0') #L,A
-master.configure(background='white')
+#master.geometry('1200x650+0+0') #L,A
+master.geometry(f'{win_width}x{win_height}')
+master.configure(background='snow')
 
 #Labels (texts)
 Label(master, text='                     Data Bank                    ',
@@ -89,19 +85,16 @@ note_nt = Entry(master, bg = "lavender")
 note_nt.grid(row=1, column=6) 
 
 #Buttons
-openbt = Button(master, text='Open  ', bg = "white", font = "Verdana 10 bold", command=opn)
+openbt = Button(master, text='Open', bg = "white", font = "Verdana 10 bold", command=opn)
 openbt.grid(row=1, column=1)
 
-newbt = Button(master, text='New   ', bg = "white", font = "Verdana 10 bold", command=new)
+newbt = Button(master, text='New  ', bg = "white", font = "Verdana 10 bold", command=new)
 newbt.grid(row=0, column=1)
 
-expbt = Button(master, text='Export', bg = "white", font = "Verdana 10 bold", command=expbt)
-expbt.grid(row=2, column=1)
-
-addbt = Button(master, text='  Submit  ', fg = "white", bg = "green", font = "Verdana 10 bold", command=add)
+addbt = Button(master, text='  Submit  ⇨', fg = "white", bg = "green", font = "Verdana 10 bold", command=add)
 addbt.place(relx=.52, rely=.1, anchor=CENTER)
 
-salvebt = Button(master, text='   Salve   ', fg = "white", bg = "purple1", font = "Verdana 10 bold", command=salve)
+salvebt = Button(master, text='   Salve/Export   ', fg = "white", bg = "purple1", font = "Verdana 10 bold", command=salve)
 salvebt.place(relx=.42, rely=.1, anchor=CENTER)
 
 master.mainloop()
