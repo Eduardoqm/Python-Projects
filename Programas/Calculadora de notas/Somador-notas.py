@@ -16,7 +16,7 @@ def opn():
     import_file_path = filedialog.askopenfilename()
     df = pd.read_csv (import_file_path)
     Label(master, text = df, fg = "black", bg = "white",
-    font = "Verdana 10", justify = LEFT).pack(relx=.8, rely=.2, anchor=CENTER)
+    font = "Verdana 10", justify = LEFT).place(relx=.8, rely=.9, anchor=S)
 
 def new():
     global df
@@ -33,7 +33,7 @@ def new():
     import_file_path = filedialog.askopenfilename()
     df = pd.read_csv (import_file_path)
     Label(master, text = df, fg = "black", bg = "white",
-    font = "Verdana 10", justify = LEFT).place(relx=.8, rely=.2, anchor=CENTER)
+    font = "Verdana 10", justify = LEFT).place(relx=.8, rely=.9, anchor=S)
 
 def salve():
     global df
@@ -58,7 +58,7 @@ def add():
     df_master = pd.concat(df_add)
     df = df_master
     Label(master, text = df, fg = "black", bg = "white",
-    font = "Verdana 10", justify = LEFT).place(relx=.8, rely=.2, anchor=CENTER)
+    font = "Verdana 10", justify = LEFT).place(relx=.8, rely=.9, anchor=S)
 
 #Window
 master = Tk()
@@ -67,8 +67,8 @@ master.geometry('1200x650+0+0') #L,A
 master.configure(background='white')
 
 #Labels (texts)
-Label(master, text='                Data Bank               ',
-fg = "black", bg = "yellow", font = "Verdana 15 bold").place(relx=.8, rely=.03, anchor=CENTER)
+Label(master, text='                     Data Bank                    ',
+fg = "black", bg = "red", font = "Verdana 15 bold").place(relx=.8, rely=.95, anchor=CENTER)
 
 Label(master, text='Category', bg = "white", font = "Verdana 10 bold").grid(row=0, column=2) 
 Label(master, text='Number ID', bg = "white", font = "Verdana 10 bold").grid(row=0, column=3) 
