@@ -19,13 +19,24 @@ def opn():
     Label(master, text = df, fg = "black", bg = "white",
     font = "Verdana 10", justify = CENTER).place(relx=.8, rely=.9, anchor=S)
 
+    resmean = df['values'].mean()
     resmax = df['values'].max()
     resmin = df['values'].min()
-    resmean = df['values'].mean()
-    Label(master, text = 'O valor maximo gasto até o momento é, ', fg = "black", bg = "white",
+
+    Label(master, text = 'On average you are spending per purchase:', fg = "black", bg = "white",
     font = "Verdana 15", justify = LEFT).place(relx=.3, rely=.35, anchor=S)
+    Label(master, text = resmean, fg = "black", bg = "white",
+    font = "Verdana 15 bold", justify = LEFT).place(relx=.3, rely=.4, anchor=S)
+
+    Label(master, text = 'The maximum amount spent so far is', fg = "black", bg = "white",
+    font = "Verdana 15", justify = LEFT).place(relx=.3, rely=.45, anchor=S)
     Label(master, text = resmax, fg = "black", bg = "white",
-    font = "Verdana 15 bold", justify = LEFT).place(relx=.5, rely=.35, anchor=S)
+    font = "Verdana 15 bold", justify = LEFT).place(relx=.5, rely=.45, anchor=S)
+
+    Label(master, text = 'The minimum amount spent so far is', fg = "black", bg = "white",
+    font = "Verdana 15", justify = LEFT).place(relx=.3, rely=.5, anchor=S)
+    Label(master, text = resmin, fg = "black", bg = "white",
+    font = "Verdana 15 bold", justify = LEFT).place(relx=.5, rely=.5, anchor=S)
 
     
 
@@ -87,7 +98,7 @@ Label(master, text='                     Data Bank                    ',
 fg = "black", bg = "lavender", font = "Verdana 15 bold").place(relx=.8, rely=.95, anchor=CENTER)
 
 Label(master, text = 'Summarized report', fg = "black", bg = "lavender",
-font = "Verdana 20 bold", justify = LEFT).place(relx=.5, rely=.25, anchor=S)
+font = "Verdana 20 bold", justify = LEFT).place(relx=.3, rely=.25, anchor=S)
 
 Label(master, text='Category', bg = "white", font = "Verdana 10 bold").grid(row=0, column=2) 
 Label(master, text='Number ID', bg = "white", font = "Verdana 10 bold").grid(row=0, column=3) 
