@@ -116,17 +116,23 @@ def add():
     font = "Verdana 15", justify = LEFT).place(relx=.3, rely=.6, anchor=S)
 
 def plott():
-    #df.hist()
-    #plt.ylabel('Value')
-    #box = plt.show()
+    global df
+    #Lineplot
+    #ax = plt.gca()
 
-    plt.bar(df['category'], df['values'])
-    # Decoration
-    plt.gca().set_xticklabels(df['category'], rotation=60, horizontalalignment= 'right')
-    plt.title("Values ​​by category", fontsize=22)
-    plt.ylabel('Total in money')
+    #df.plot(kind='line',x='date',y='values',ax=ax)
+    plt.plot( 'date', 'values', data=df, color='skyblue')
     plt.show()
-    Label(master, image = box).place(relx=.8, rely=.9, anchor=CENTER)
+
+
+
+    #Barplot
+    #df.groupby('category')['values'].sum().plot(kind='bar', color = ['green','y','orange','yellow', 'red', 'darkgreen', 'blue'])
+    #plt.ylabel('Total in money')
+    #plt.xlabel(' ')
+    #plt.title('Values by category')
+    #plt.xticks(rotation='45')
+    #plt.show()
 
 #Window
 master = Tk()
