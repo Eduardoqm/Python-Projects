@@ -119,7 +119,17 @@ def plott():
     global df
     #Pieplot
     # make the plot
-    df.plot(kind='pie', subplots=True, figsize=(8, 8))
+    #Calculate percent
+    total = sum(df['values'])
+    diff = (df['values']*100)/total
+    df['values2'] = diff
+
+    df.groupby('category')['values2'].sum().plot(kind='pie')
+    plt.ylabel(' ')
+    plt.xlabel(' ')
+    plt.title('Percent of Category')
+    plt.show()
+   
 
 
 
