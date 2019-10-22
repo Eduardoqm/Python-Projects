@@ -18,14 +18,14 @@ def opn():
     df = pd.read_csv (import_file_path)
     Label(master, text = df, fg = "black", bg = "white",
     font = "Verdana 10", justify = CENTER).place(relx=.8, rely=.9, anchor=S)
-    #res = df.describe()
-    #res = df.loc[df['values'].idxmax()]
+
     resmax = df['values'].max()
     resmin = df['values'].min()
+    resmean = df['values'].mean()
     Label(master, text = 'O valor maximo gasto até o momento é, ', fg = "black", bg = "white",
-    font = "Verdana 15", justify = LEFT).place(relx=.3, rely=.9, anchor=S)
+    font = "Verdana 15", justify = LEFT).place(relx=.3, rely=.35, anchor=S)
     Label(master, text = resmax, fg = "black", bg = "white",
-    font = "Verdana 15 bold", justify = LEFT).place(relx=.5, rely=.9, anchor=S)
+    font = "Verdana 15 bold", justify = LEFT).place(relx=.5, rely=.35, anchor=S)
 
     
 
@@ -78,7 +78,8 @@ def plott():
 #Window
 master = Tk()
 master.title('Calculadora de notas - Beta')
-master.geometry('1250x650+0+0') #L,A
+master.geometry('1300x680+0+0') #L,A
+#master.attributes('-fullscreen',True)
 master.configure(background='snow')
 
 #Labels (texts)
