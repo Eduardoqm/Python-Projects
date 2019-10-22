@@ -117,12 +117,10 @@ def add():
 
 def plott():
     global df
-    #Lineplot
-    #ax = plt.gca()
+    #Pieplot
+    # make the plot
+    df.plot(kind='pie', subplots=True, figsize=(8, 8))
 
-    #df.plot(kind='line',x='date',y='values',ax=ax)
-    plt.plot( 'date', 'values', data=df, color='skyblue')
-    plt.show()
 
 
 
