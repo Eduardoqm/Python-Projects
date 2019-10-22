@@ -25,24 +25,28 @@ def opn():
 
     Label(master, text = 'On average you are spending per purchase:', fg = "black", bg = "snow",
     font = "Verdana 15", justify = LEFT).place(relx=.3, rely=.35, anchor=S)
-    Label(master, text = '      ', fg = "black", bg = "snow",
+    Label(master, text = '                                            ', fg = "black", bg = "snow",
     font = "Verdana 15 bold", justify = LEFT).place(relx=.3, rely=.4, anchor=S)
     Label(master, text = resmean, fg = "black", bg = "snow",
     font = "Verdana 15 bold", justify = LEFT).place(relx=.3, rely=.4, anchor=S)
 
-    Label(master, text = 'The maximum amount spent so far is', fg = "black", bg = "snow",
+    Label(master, text = 'The maximum amount spent so far is:', fg = "black", bg = "snow",
     font = "Verdana 15", justify = LEFT).place(relx=.3, rely=.45, anchor=S)
     Label(master, text = '      ', fg = "black", bg = "snow",
     font = "Verdana 15 bold", justify = LEFT).place(relx=.5, rely=.45, anchor=S)
     Label(master, text = resmax, fg = "black", bg = "snow",
     font = "Verdana 15 bold", justify = LEFT).place(relx=.5, rely=.45, anchor=S)
 
-    Label(master, text = 'The minimum amount spent so far is', fg = "black", bg = "snow",
+    Label(master, text = 'The minimum amount spent so far is:', fg = "black", bg = "snow",
     font = "Verdana 15", justify = LEFT).place(relx=.3, rely=.5, anchor=S)
     Label(master, text = '      ', fg = "black", bg = "snow",
     font = "Verdana 15 bold", justify = LEFT).place(relx=.5, rely=.5, anchor=S)
     Label(master, text = resmin, fg = "black", bg = "snow",
     font = "Verdana 15 bold", justify = LEFT).place(relx=.5, rely=.5, anchor=S)
+
+    Label(master, text = 'To see more information click on Graphic Report!', fg = "black", bg = "snow",
+    font = "Verdana 15", justify = LEFT).place(relx=.3, rely=.6, anchor=S)
+    
 
     
 
@@ -82,9 +86,6 @@ def add():
     df = df_master
     Label(master, text = df, fg = "black", bg = "white",
     font = "Verdana 10", justify = CENTER).place(relx=.8, rely=.9, anchor=S)
-    res = df['4'].describe()
-    Label(master, text = res, fg = "black", bg = "white",
-    font = "Verdana 10", justify = CENTER).place(relx=.3, rely=.9, anchor=S)
 
     resmean = df['values'].mean()
     resmax = df['values'].max()
@@ -92,29 +93,39 @@ def add():
 
     Label(master, text = 'On average you are spending per purchase:', fg = "black", bg = "snow",
     font = "Verdana 15", justify = LEFT).place(relx=.3, rely=.35, anchor=S)
-    Label(master, text = '      ', fg = "black", bg = "snow",
+    Label(master, text = '                                             ', fg = "black", bg = "snow",
     font = "Verdana 15 bold", justify = LEFT).place(relx=.3, rely=.4, anchor=S)
     Label(master, text = resmean, fg = "black", bg = "snow",
     font = "Verdana 15 bold", justify = LEFT).place(relx=.3, rely=.4, anchor=S)
 
-    Label(master, text = 'The maximum amount spent so far is', fg = "black", bg = "snow",
+    Label(master, text = 'The maximum amount spent so far is:', fg = "black", bg = "snow",
     font = "Verdana 15", justify = LEFT).place(relx=.3, rely=.45, anchor=S)
     Label(master, text = '      ', fg = "black", bg = "snow",
     font = "Verdana 15 bold", justify = LEFT).place(relx=.5, rely=.45, anchor=S)
     Label(master, text = resmax, fg = "black", bg = "snow",
     font = "Verdana 15 bold", justify = LEFT).place(relx=.5, rely=.45, anchor=S)
 
-    Label(master, text = 'The minimum amount spent so far is', fg = "black", bg = "snow",
+    Label(master, text = 'The minimum amount spent so far is:', fg = "black", bg = "snow",
     font = "Verdana 15", justify = LEFT).place(relx=.3, rely=.5, anchor=S)
     Label(master, text = '      ', fg = "black", bg = "snow",
     font = "Verdana 15 bold", justify = LEFT).place(relx=.5, rely=.5, anchor=S)
     Label(master, text = resmin, fg = "black", bg = "snow",
     font = "Verdana 15 bold", justify = LEFT).place(relx=.5, rely=.5, anchor=S)
 
+    Label(master, text = 'To see more information click on Graphic Report!', fg = "black", bg = "snow",
+    font = "Verdana 15", justify = LEFT).place(relx=.3, rely=.6, anchor=S)
+
 def plott():
-    df.plot()
-    plt.ylabel('Value')
-    box = plt.show()
+    #df.hist()
+    #plt.ylabel('Value')
+    #box = plt.show()
+
+    plt.bar(df['category'], df['values'])
+    # Decoration
+    plt.gca().set_xticklabels(df['category'], rotation=60, horizontalalignment= 'right')
+    plt.title("Values ​​by category", fontsize=22)
+    plt.ylabel('Total in money')
+    plt.show()
     Label(master, image = box).place(relx=.8, rely=.9, anchor=CENTER)
 
 #Window
@@ -128,7 +139,7 @@ master.configure(background='snow')
 Label(master, text='                     Data Bank                    ',
 fg = "black", bg = "lavender", font = "Verdana 15 bold").place(relx=.8, rely=.95, anchor=CENTER)
 
-Label(master, text = 'Summarized report', fg = "black", bg = "lavender",
+Label(master, text = '       Summarized report        ', fg = "black", bg = "lavender",
 font = "Verdana 25 bold", justify = LEFT).place(relx=.3, rely=.25, anchor=S)
 
 Label(master, text='Category', bg = "white", font = "Verdana 10 bold").grid(row=0, column=2) 
