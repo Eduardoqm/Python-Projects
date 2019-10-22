@@ -86,6 +86,9 @@ master.configure(background='snow')
 Label(master, text='                     Data Bank                    ',
 fg = "black", bg = "lavender", font = "Verdana 15 bold").place(relx=.8, rely=.95, anchor=CENTER)
 
+Label(master, text = 'Summarized report', fg = "black", bg = "lavender",
+font = "Verdana 20 bold", justify = LEFT).place(relx=.5, rely=.25, anchor=S)
+
 Label(master, text='Category', bg = "white", font = "Verdana 10 bold").grid(row=0, column=2) 
 Label(master, text='Number ID', bg = "white", font = "Verdana 10 bold").grid(row=0, column=3) 
 Label(master, text='Date', bg = "white", font = "Verdana 10 bold").grid(row=0, column=4) 
