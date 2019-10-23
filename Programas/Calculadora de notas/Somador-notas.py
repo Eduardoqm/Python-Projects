@@ -16,6 +16,7 @@ def opn():
     global df
     import_file_path = filedialog.askopenfilename()
     df = pd.read_csv (import_file_path)
+    
     Label(master, text = df, fg = "black", bg = "white",
     font = "Verdana 10", justify = CENTER).place(relx=.8, rely=.9, anchor=S)
 
@@ -118,16 +119,18 @@ def add():
 def plott():
     global df
     #Pieplot
-    # make the plot
     #Calculate percent
-    total = sum(df['values'])
-    diff = (df['values']*100)/total
-    df['values2'] = diff
+    #pizza = df
+    #pizza2 = pizza
+    #total = sum(pizza2['values'])
+    #diff = (pizza2['values']*100)/total
+    #pizza3 = pizza2
+    #pizza3['values2'] = diff
 
-    df.groupby('category')['values2'].sum().plot(kind='pie')
+    df.groupby('category')['values'].sum().plot(kind='pie')
     plt.ylabel(' ')
     plt.xlabel(' ')
-    plt.title('Percent of Category')
+    plt.title('Size of Category')
     plt.show()
    
 
