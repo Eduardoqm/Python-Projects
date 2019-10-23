@@ -83,7 +83,7 @@ def add():
     global df
     df_input = pd.DataFrame({'category':[cat_nt.get()],
         'number_id':[float(n_nt.get())],
-        'date':[float(data_nt.get())],
+        'date':[data_nt.get()],
         'values':[float(val_nt.get())],
         'notes':[note_nt.get()]
         })
@@ -133,13 +133,15 @@ def add():
 def plott():
     global df
     #Lineplot
-    fig, ax = plt.subplots()
-    ax.plot(df['values'], df['date'])
-    ax.set_xticks(df['date'])
-    ax.xaxis.set_major_formatter(mdates.DateFormatter("%Y-%m"))
-    ax.xaxis.set_minor_formatter(mdates.DateFormatter("%Y-%m"))
-    _=plt.xticks(rotation=90)
-    plt.show()  
+    #fig, ax = plt.subplots()
+    df.groupby('date')['values'].sum().plot()
+    #ax.plot(df['date'], df['values'], color = 'orange')
+    #fig.autofmt_xdate()
+    #ax.fmt_xdata = mdates.DateFormatter("%d %m %Y")
+    #ax.set_title('Spending over time')
+    plt.ylabel('Total in money')
+    plt.xlabel('Date')
+    plt.show() 
 
 
     #Pieplot
