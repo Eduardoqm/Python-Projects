@@ -23,33 +23,38 @@ def opn():
     resmean = df['values'].mean()
     resmax = df['values'].max()
     resmin = df['values'].min()
+    ressum = df['values'].sum()
 
     Label(master, text = 'On average you are spending per purchase:', fg = "black", bg = "snow",
     font = "Verdana 15", justify = LEFT).place(relx=.3, rely=.35, anchor=S)
-    Label(master, text = '                                            ', fg = "black", bg = "snow",
+    Label(master, text = '                                             ', fg = "black", bg = "snow",
     font = "Verdana 15 bold", justify = LEFT).place(relx=.3, rely=.4, anchor=S)
     Label(master, text = resmean, fg = "black", bg = "snow",
     font = "Verdana 15 bold", justify = LEFT).place(relx=.3, rely=.4, anchor=S)
 
     Label(master, text = 'The maximum amount spent so far is:', fg = "black", bg = "snow",
     font = "Verdana 15", justify = LEFT).place(relx=.3, rely=.45, anchor=S)
-    Label(master, text = '      ', fg = "black", bg = "snow",
+    Label(master, text = '         ', fg = "black", bg = "snow",
     font = "Verdana 15 bold", justify = LEFT).place(relx=.5, rely=.45, anchor=S)
     Label(master, text = resmax, fg = "black", bg = "snow",
     font = "Verdana 15 bold", justify = LEFT).place(relx=.5, rely=.45, anchor=S)
 
     Label(master, text = 'The minimum amount spent so far is:', fg = "black", bg = "snow",
     font = "Verdana 15", justify = LEFT).place(relx=.3, rely=.5, anchor=S)
-    Label(master, text = '      ', fg = "black", bg = "snow",
+    Label(master, text = '         ', fg = "black", bg = "snow",
     font = "Verdana 15 bold", justify = LEFT).place(relx=.5, rely=.5, anchor=S)
     Label(master, text = resmin, fg = "black", bg = "snow",
     font = "Verdana 15 bold", justify = LEFT).place(relx=.5, rely=.5, anchor=S)
 
-    Label(master, text = 'To see more information click on Graphic Report!', fg = "black", bg = "snow",
-    font = "Verdana 15", justify = LEFT).place(relx=.3, rely=.6, anchor=S)
-    
+    Label(master, text = 'The total amount spent so far is:', fg = "black", bg = "snow",
+    font = "Verdana 15", justify = LEFT).place(relx=.3, rely=.55, anchor=S)
+    Label(master, text = '                                           ', fg = "black", bg = "snow",
+    font = "Verdana 15 bold", justify = LEFT).place(relx=.3, rely=.6, anchor=S)
+    Label(master, text = ressum, fg = "red", bg = "snow",
+    font = "Verdana 15 bold", justify = LEFT).place(relx=.3, rely=.6, anchor=S)
 
-    
+    Label(master, text = 'To see more information click on Graphic Report!', fg = "black", bg = "snow",
+    font = "Verdana 15", justify = LEFT).place(relx=.3, rely=.65, anchor=S)
 
 def new():
     global df
@@ -91,6 +96,7 @@ def add():
     resmean = df['values'].mean()
     resmax = df['values'].max()
     resmin = df['values'].min()
+    ressum = df['values'].sum()
 
     Label(master, text = 'On average you are spending per purchase:', fg = "black", bg = "snow",
     font = "Verdana 15", justify = LEFT).place(relx=.3, rely=.35, anchor=S)
@@ -101,49 +107,46 @@ def add():
 
     Label(master, text = 'The maximum amount spent so far is:', fg = "black", bg = "snow",
     font = "Verdana 15", justify = LEFT).place(relx=.3, rely=.45, anchor=S)
-    Label(master, text = '      ', fg = "black", bg = "snow",
+    Label(master, text = '         ', fg = "black", bg = "snow",
     font = "Verdana 15 bold", justify = LEFT).place(relx=.5, rely=.45, anchor=S)
     Label(master, text = resmax, fg = "black", bg = "snow",
     font = "Verdana 15 bold", justify = LEFT).place(relx=.5, rely=.45, anchor=S)
 
     Label(master, text = 'The minimum amount spent so far is:', fg = "black", bg = "snow",
     font = "Verdana 15", justify = LEFT).place(relx=.3, rely=.5, anchor=S)
-    Label(master, text = '      ', fg = "black", bg = "snow",
+    Label(master, text = '         ', fg = "black", bg = "snow",
     font = "Verdana 15 bold", justify = LEFT).place(relx=.5, rely=.5, anchor=S)
     Label(master, text = resmin, fg = "black", bg = "snow",
     font = "Verdana 15 bold", justify = LEFT).place(relx=.5, rely=.5, anchor=S)
 
+    Label(master, text = 'The total amount spent so far is:', fg = "black", bg = "snow",
+    font = "Verdana 15", justify = LEFT).place(relx=.3, rely=.55, anchor=S)
+    Label(master, text = '                                           ', fg = "black", bg = "snow",
+    font = "Verdana 15 bold", justify = LEFT).place(relx=.3, rely=.6, anchor=S)
+    Label(master, text = ressum, fg = "red", bg = "snow",
+    font = "Verdana 15 bold", justify = LEFT).place(relx=.3, rely=.6, anchor=S)
+
     Label(master, text = 'To see more information click on Graphic Report!', fg = "black", bg = "snow",
-    font = "Verdana 15", justify = LEFT).place(relx=.3, rely=.6, anchor=S)
+    font = "Verdana 15", justify = LEFT).place(relx=.3, rely=.65, anchor=S)
 
 def plott():
     global df
     #Pieplot
-    #Calculate percent
-    #pizza = df
-    #pizza2 = pizza
-    #total = sum(pizza2['values'])
-    #diff = (pizza2['values']*100)/total
-    #pizza3 = pizza2
-    #pizza3['values2'] = diff
-
+    plt.figure(figsize=(13, 4))
+    plt.subplot(1, 2, 1)
     df.groupby('category')['values'].sum().plot(kind='pie')
     plt.ylabel(' ')
     plt.xlabel(' ')
     plt.title('Size of Category')
-    plt.show()
    
-
-
-
-
     #Barplot
-    #df.groupby('category')['values'].sum().plot(kind='bar', color = ['green','y','orange','yellow', 'red', 'darkgreen', 'blue'])
-    #plt.ylabel('Total in money')
-    #plt.xlabel(' ')
-    #plt.title('Values by category')
-    #plt.xticks(rotation='45')
-    #plt.show()
+    plt.subplot(1, 2, 2)
+    df.groupby('category')['values'].sum().plot(kind='bar', color = ['green','y','orange','yellow', 'red', 'darkgreen', 'blue'])
+    plt.ylabel('Total in money')
+    plt.xlabel(' ')
+    plt.title('Values by category')
+    plt.xticks(rotation='45')
+    plt.show()
 
 #Window
 master = Tk()
