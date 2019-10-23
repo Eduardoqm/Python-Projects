@@ -133,9 +133,7 @@ def add():
 def plott():
     global df
     #Lineplot
-    #df.groupby('date')['values'].sum().plot()
     fig, ax = plt.subplots()
-    #ax.plot(df['date'], df['values'], color = 'orange')
     ax.plot(df.groupby('date')['values'].sum(), color = 'orange')
     fig.autofmt_xdate()
     ax.fmt_xdata = mdates.DateFormatter("%d %m %Y")
