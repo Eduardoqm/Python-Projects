@@ -136,7 +136,7 @@ def plott():
     fig, ax = plt.subplots()
     ax.plot(df.groupby('date')['values'].sum(), color = 'orange')
     fig.autofmt_xdate()
-    ax.fmt_xdata = mdates.DateFormatter("%d %m %Y")
+    ax.fmt_xdata = mdates.DateFormatter("%d-%m-%Y")
     ax.set_title('Spending over time')
     plt.ylabel('Total in money')
     plt.xlabel('Date')
