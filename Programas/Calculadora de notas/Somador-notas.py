@@ -132,7 +132,26 @@ def add():
 
 def plott():
     global df
+   
+
+    #Pieplot
+    plt.figure(figsize=(13, 4))
+    plt.subplot(1, 2, 1)
+    df.groupby('category')['values'].sum().plot(kind='pie')
+    plt.ylabel(' ')
+    plt.xlabel(' ')
+    plt.title('Size of Category')
+   
+    #Barplot
+    plt.subplot(1, 2, 2)
+    df.groupby('category')['values'].sum().plot(kind='bar', color = ['green','y','orange','yellow', 'red', 'darkgreen', 'blue'])
+    plt.ylabel('Total in money')
+    plt.xlabel(' ')
+    plt.title('Values by category')
+    plt.xticks(rotation='45')
+
     #Lineplot
+    plt.subplot(2, 1, 2)
     fig, ax = plt.subplots()
     ax.plot(df.groupby('date')['values'].sum(), color = 'orange')
     fig.autofmt_xdate()
@@ -140,25 +159,7 @@ def plott():
     ax.set_title('Spending over time')
     plt.ylabel('Total in money')
     plt.xlabel('Date')
-    plt.show() 
-
-
-    #Pieplot
-    #plt.figure(figsize=(13, 4))
-    #plt.subplot(1, 2, 1)
-    #df.groupby('category')['values'].sum().plot(kind='pie')
-    #plt.ylabel(' ')
-    #plt.xlabel(' ')
-    #plt.title('Size of Category')
-   
-    #Barplot
-    #plt.subplot(1, 2, 2)
-    #df.groupby('category')['values'].sum().plot(kind='bar', color = ['green','y','orange','yellow', 'red', 'darkgreen', 'blue'])
-    #plt.ylabel('Total in money')
-    #plt.xlabel(' ')
-    #plt.title('Values by category')
-    #plt.xticks(rotation='45')
-    #plt.show()
+    plt.show()
 
 #Window
 master = Tk()
