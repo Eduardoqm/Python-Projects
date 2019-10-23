@@ -10,6 +10,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from tkinter import *
 from tkinter import filedialog
+import matplotlib.dates as mdates
 
 #Functions 
 def opn():
@@ -131,22 +132,32 @@ def add():
 
 def plott():
     global df
+    #Lineplot
+    fig, ax = plt.subplots()
+    ax.plot(df['values'], df['date'])
+    ax.set_xticks(df['date'])
+    ax.xaxis.set_major_formatter(mdates.DateFormatter("%Y-%m"))
+    ax.xaxis.set_minor_formatter(mdates.DateFormatter("%Y-%m"))
+    _=plt.xticks(rotation=90)
+    plt.show()  
+
+
     #Pieplot
-    plt.figure(figsize=(13, 4))
-    plt.subplot(1, 2, 1)
-    df.groupby('category')['values'].sum().plot(kind='pie')
-    plt.ylabel(' ')
-    plt.xlabel(' ')
-    plt.title('Size of Category')
+    #plt.figure(figsize=(13, 4))
+    #plt.subplot(1, 2, 1)
+    #df.groupby('category')['values'].sum().plot(kind='pie')
+    #plt.ylabel(' ')
+    #plt.xlabel(' ')
+    #plt.title('Size of Category')
    
     #Barplot
-    plt.subplot(1, 2, 2)
-    df.groupby('category')['values'].sum().plot(kind='bar', color = ['green','y','orange','yellow', 'red', 'darkgreen', 'blue'])
-    plt.ylabel('Total in money')
-    plt.xlabel(' ')
-    plt.title('Values by category')
-    plt.xticks(rotation='45')
-    plt.show()
+    #plt.subplot(1, 2, 2)
+    #df.groupby('category')['values'].sum().plot(kind='bar', color = ['green','y','orange','yellow', 'red', 'darkgreen', 'blue'])
+    #plt.ylabel('Total in money')
+    #plt.xlabel(' ')
+    #plt.title('Values by category')
+    #plt.xticks(rotation='45')
+    #plt.show()
 
 #Window
 master = Tk()
