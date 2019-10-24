@@ -151,10 +151,13 @@ def plott():
     #plt.xticks(rotation='45')
 
     #Lineplot
-    fig, ax = plt.subplots()
-    ax.plot(df.groupby('date')['values'].sum(), color = 'orange')
-    fig.autofmt_xdate()
-    ax.fmt_xdata = mdates.DateFormatter("%Y-%m-%d")
+    #fig, ax = plt.subplots()
+    #ax.plot(df.groupby('date')['values'].sum(), color = 'orange')
+    #fig.autofmt_xdate()
+    #ax.fmt_xdata = mdates.DateFormatter("%Y-%m-%d")
+    plt.plot(df.groupby('date')['values'].sum(), color = 'orange')
+    #plt.fmt_xdata = mdates.DateFormatter("%Y-%m-%d")
+    mdates.DateFormatter("%Y-%m-%d")
     plt.title('Spending over time')
     plt.ylabel('Total in money')
     plt.xlabel('Date')
