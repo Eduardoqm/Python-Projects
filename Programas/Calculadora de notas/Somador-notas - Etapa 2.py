@@ -175,7 +175,7 @@ filemenu.add_command(label="Open", command=opn)
 filemenu.add_command(label="Exit", command=master.quit)
 menubar.add_cascade(label="File", menu=filemenu)
 
-editmenu.add_separator()
+filemenu.add_separator()
 
 helpmenu = Menu(menubar, tearoff=0)
 helpmenu.add_command(label="Help Index", command=new)
