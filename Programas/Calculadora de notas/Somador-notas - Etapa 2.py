@@ -178,8 +178,8 @@ menubar.add_cascade(label="File", menu=filemenu)
 editmenu.add_separator()
 
 helpmenu = Menu(menubar, tearoff=0)
-helpmenu.add_command(label="Help Index", command=donothing)
-helpmenu.add_command(label="About...", command=donothing)
+helpmenu.add_command(label="Help Index", command=new)
+helpmenu.add_command(label="About...", command=new)
 menubar.add_cascade(label="Help", menu=helpmenu)
 
 master.config(menu=menubar)
