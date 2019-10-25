@@ -1,0 +1,11 @@
+category,number_id,date,values,notes
+Alimento,234234.0,1990-12-01,33.77,Obervação
+Alimento,234234.0,1990-07-11,25.33,Obervação
+Alimento,234234.0,1990-02-19,10.0,Obervação
+Transporte,756757.0,1990-02-10,300.0,Obervação
+Transporte,756757.0,1990-12-15,300.0,Obervação
+Farmacia,9078979.0,1990-06-09,38.99,Obervação
+Mercado,4565788.0,1990-11-15,105.98,Obervação
+Alimento,3543534.0,1990-12-15,50.0,obs
+Alimento,3543534.0,1991-01-15,50.0,obs
+Farmacia,234243234.0,1990-10-24,5.0,Particular
