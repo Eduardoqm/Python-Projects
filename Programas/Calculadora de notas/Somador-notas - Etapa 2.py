@@ -76,8 +76,11 @@ def new():
 
 def salve():
     global df
-    export_file_path = filedialog.asksaveasfilename(defaultextension='.csv')
-    df.to_csv (export_file_path, index = None, header=True)
+    file = df.to_csv()
+    fileName = file
+    #global df
+    #export_file_path = filedialog.asksaveasfilename(defaultextension='.csv')
+    #df.to_csv (export_file_path, index = None, header=True)
 
 def add():
     global df
@@ -133,7 +136,6 @@ def add():
 def plott():
     global df
    
-
     #Pieplot
     plt.figure(figsize=(10, 6))
     plt.subplot(2, 2, 1)
@@ -172,6 +174,7 @@ menubar = Menu(master)
 filemenu = Menu(menubar, tearoff=0)
 filemenu.add_command(label="New", command=new)
 filemenu.add_command(label="Open", command=opn)
+filemenu.add_command(label="Salve", command=salve)
 filemenu.add_command(label="Exit", command=master.quit)
 menubar.add_cascade(label="File", menu=filemenu)
 
