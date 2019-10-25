@@ -167,6 +167,23 @@ master.geometry('1300x680+0+0') #L,A
 #master.attributes('-fullscreen',True)
 master.configure(background='snow')
 
+#Menu
+menubar = Menu(master)
+filemenu = Menu(menubar, tearoff=0)
+filemenu.add_command(label="New", command=new)
+filemenu.add_command(label="Open", command=opn)
+filemenu.add_command(label="Exit", command=master.quit)
+menubar.add_cascade(label="File", menu=filemenu)
+
+editmenu.add_separator()
+
+helpmenu = Menu(menubar, tearoff=0)
+helpmenu.add_command(label="Help Index", command=donothing)
+helpmenu.add_command(label="About...", command=donothing)
+menubar.add_cascade(label="Help", menu=helpmenu)
+
+master.config(menu=menubar)
+
 #Labels (texts)
 Label(master, text='                     Data Bank                    ',
 fg = "black", bg = "lavender", font = "Verdana 15 bold").place(relx=.8, rely=.95, anchor=CENTER)
