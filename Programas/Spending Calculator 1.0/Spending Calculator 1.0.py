@@ -165,17 +165,14 @@ def about():
 #Window
 import sys
 master = Tk()
-#master.title('Spending Calculator 1.0')
-#master.geometry('1200x680+0+0') #L,A
+master.title('Spending Calculator 1.0')
+master.geometry('1200x680+0+0') #L,A
 #master.attributes('-fullscreen',True)
-#master.configure(background='snow')
-RWidth=winfo_screenwidth()
-RHeight=winfo_screenheight()
-master.geometry(("%dx%d")%(RWidth,RHeight))
+master.configure(background='snow')
 
 #Menu
 menubar = Menu(master)
-filemenu = Menu(menubar, tearoff=0)
+filemenu = Menu(menubar, tearoff=0, font = "Verdana 10")
 filemenu.add_command(label="New", command=new)
 filemenu.add_command(label="Open", command=opn)
 filemenu.add_command(label="Salve", command=salve)
@@ -184,7 +181,7 @@ menubar.add_cascade(label="File", menu=filemenu)
 
 filemenu.add_separator()
 
-helpmenu = Menu(menubar, tearoff=0)
+helpmenu = Menu(menubar, tearoff=0, font = "Verdana 10")
 helpmenu.add_command(label="About...", command=about)
 menubar.add_cascade(label="About", menu=helpmenu)
 
@@ -197,11 +194,12 @@ fg = "black", bg = "lavender", font = "Verdana 15 bold").place(relx=.8, rely=.95
 Label(master, text = '       Summarized report        ', fg = "black", bg = "lavender",
 font = "Verdana 25 bold", justify = LEFT).place(relx=.3, rely=.25, anchor=S)
 
-Label(master, text='Category', bg = "white", font = "Verdana 10 bold").grid(row=0, column=2) 
-Label(master, text='Number ID', bg = "white", font = "Verdana 10 bold").grid(row=0, column=3) 
-Label(master, text='Date', bg = "white", font = "Verdana 10 bold").grid(row=0, column=4) 
-Label(master, text='Value', bg = "white", font = "Verdana 10 bold").grid(row=0, column=5)
-Label(master, text='Notes', bg = "white", font = "Verdana 10 bold").grid(row=0, column=6)  
+Label(master, text='Category', bg = "snow", font = "Verdana 10 bold").grid(row=0, column=2) 
+Label(master, text='Number ID', bg = "snow", font = "Verdana 10 bold").grid(row=0, column=3) 
+Label(master, text='Date', bg = "snow", font = "Verdana 10 bold").grid(row=0, column=4) 
+Label(master, text='Value', bg = "snow", font = "Verdana 10 bold").grid(row=0, column=5)
+Label(master, text='Notes', bg = "snow", font = "Verdana 10 bold").grid(row=0, column=6)  
+Label(master, text='            ', bg = "snow",).grid(row=1, column=1) 
 
 #Inputs
 cat_nt = Entry(master, bg = "lavender") 
@@ -216,11 +214,11 @@ note_nt = Entry(master, bg = "lavender")
 note_nt.grid(row=1, column=6) 
 
 #Buttons
-openbt = Button(master, text='Open', bg = "white", font = "Verdana 10 bold", command=opn)
-openbt.grid(row=1, column=1)
+#openbt = Button(master, text='Open', bg = "snow", font = "Verdana 10 bold", command=opn)
+#openbt.grid(row=1, column=1)
 
-newbt = Button(master, text='New  ', bg = "white", font = "Verdana 10 bold", command=new)
-newbt.grid(row=0, column=1)
+#newbt = Button(master, text='New  ', bg = "snow", font = "Verdana 10 bold", command=new)
+#newbt.grid(row=0, column=1)
 
 addbt = Button(master, text='  Submit  ⇨', fg = "white", bg = "green", font = "Verdana 10 bold", command=add)
 addbt.place(relx=.50, rely=.1, anchor=CENTER)
