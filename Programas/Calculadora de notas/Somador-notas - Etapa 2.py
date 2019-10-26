@@ -66,21 +66,18 @@ def new():
         'notes':[]
         })
 
-    export_file_path = filedialog.asksaveasfilename(defaultextension='.csv')
+    export_file_path = filedialog.asksaveasfilename(title = "Create your new file name", defaultextension='.csv')
     df.to_csv (export_file_path, index = None, header=True)
 
-    import_file_path = filedialog.askopenfilename()
+    import_file_path = filedialog.askopenfilename(title = "Select your new file")
     df = pd.read_csv (import_file_path)
     Label(master, text = df, fg = "black", bg = "white",
     font = "Verdana 10", justify = CENTER).place(relx=.8, rely=.9, anchor=S)
 
 def salve():
     global df
-    file = df.to_csv()
-    fileName = file
-    #global df
-    #export_file_path = filedialog.asksaveasfilename(defaultextension='.csv')
-    #df.to_csv (export_file_path, index = None, header=True)
+    export_file_path = filedialog.asksaveasfilename(title = "Select your file to save and replace", defaultextension='.csv')
+    df.to_csv (export_file_path, index = None, header=True)
 
 def add():
     global df
@@ -158,14 +155,17 @@ def plott():
     mdates.DateFormatter("%Y-%m-%d")
     plt.title('Spending over time')
     plt.ylabel('Total in money')
-    #plt.xlabel('Date')
     plt.xticks(rotation='45')
     plt.show()
 
+def about():
+    messagebox.showinfo("About Spending Calculator 1.0", "This software was developed by Eduardo Q. Marques. \n"
+     "For more information and get manual access the link: www.asdada.asad")
+
 #Window
 master = Tk()
-master.title('Calculadora de notas - Beta')
-master.geometry('1300x680+0+0') #L,A
+master.title('Spending Calculator 1.0')
+master.geometry('1200x680+0+0') #L,A
 #master.attributes('-fullscreen',True)
 master.configure(background='snow')
 
@@ -182,7 +182,7 @@ filemenu.add_separator()
 
 helpmenu = Menu(menubar, tearoff=0)
 helpmenu.add_command(label="Help Index", command=new)
-helpmenu.add_command(label="About...", command=new)
+helpmenu.add_command(label="About...", command=about)
 menubar.add_cascade(label="Help", menu=helpmenu)
 
 master.config(menu=menubar)
