@@ -169,9 +169,8 @@ master = Tk()
 #master.geometry('1200x680+0+0') #L,A
 #master.attributes('-fullscreen',True)
 #master.configure(background='snow')
-RTitle=Root.title("Windows")
-RWidth=Root.winfo_screenwidth()
-RHeight=Root.winfo_screenheight()
+RWidth=winfo_screenwidth()
+RHeight=winfo_screenheight()
 master.geometry(("%dx%d")%(RWidth,RHeight))
 
 #Menu
