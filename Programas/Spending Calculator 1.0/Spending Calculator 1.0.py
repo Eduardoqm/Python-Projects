@@ -163,11 +163,16 @@ def about():
      "For more information and get manual access the link: www.asdada.asad")
 
 #Window
+import sys
 master = Tk()
-master.title('Spending Calculator 1.0')
-master.geometry('1200x680+0+0') #L,A
+#master.title('Spending Calculator 1.0')
+#master.geometry('1200x680+0+0') #L,A
 #master.attributes('-fullscreen',True)
-master.configure(background='snow')
+#master.configure(background='snow')
+RTitle=Root.title("Windows")
+RWidth=Root.winfo_screenwidth()
+RHeight=Root.winfo_screenheight()
+master.geometry(("%dx%d")%(RWidth,RHeight))
 
 #Menu
 menubar = Menu(master)
@@ -181,9 +186,8 @@ menubar.add_cascade(label="File", menu=filemenu)
 filemenu.add_separator()
 
 helpmenu = Menu(menubar, tearoff=0)
-helpmenu.add_command(label="Help Index", command=new)
 helpmenu.add_command(label="About...", command=about)
-menubar.add_cascade(label="Help", menu=helpmenu)
+menubar.add_cascade(label="About", menu=helpmenu)
 
 master.config(menu=menubar)
 
