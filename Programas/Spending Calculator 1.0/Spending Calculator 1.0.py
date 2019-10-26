@@ -159,8 +159,8 @@ def plott():
     plt.show()
 
 def about():
-    messagebox.showinfo("About Spending Calculator 1.0", "This software was developed by Eduardo Q. Marques. \n"
-     "For more information and get manual access the link: www.asdada.asad")
+    messagebox.showinfo("About Spending Calculator 1.0", "This software was developed by Eduardo Q. Marques (2019). \n"
+     "For more information and get manual access the link: https://github.com/Eduardoqm/EQM-Softwares/tree/master/Spending%20Calculator%201.0")
 
 #Window
 import sys
@@ -212,13 +212,6 @@ val_nt = Entry(master, bg = "lavender")
 val_nt.grid(row=1, column=5)
 note_nt = Entry(master, bg = "lavender")  
 note_nt.grid(row=1, column=6) 
-
-#Buttons
-#openbt = Button(master, text='Open', bg = "snow", font = "Verdana 10 bold", command=opn)
-#openbt.grid(row=1, column=1)
-
-#newbt = Button(master, text='New  ', bg = "snow", font = "Verdana 10 bold", command=new)
-#newbt.grid(row=0, column=1)
 
 addbt = Button(master, text='  Submit  ⇨', fg = "white", bg = "green", font = "Verdana 10 bold", command=add)
 addbt.place(relx=.50, rely=.1, anchor=CENTER)
