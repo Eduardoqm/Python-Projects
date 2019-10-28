@@ -1,17 +1,8 @@
 import serial
 
 port = "COM4"
-ser = serial.Serial(port,9600)
-value = 0
-
-#ser = serial.Serial('/dev/ttyACM0')
-ser.flushInput()
-
+ser = serial.Serial(port, 9600, timeout=5.0)
 while True:
-    try:
-        ser_bytes = ser.readline()
-        decoded_bytes = float(ser_bytes[0:len(ser_bytes)-2].decode("utf-8"))
-        print(decoded_bytes)
-    except:
-        print("Keyboard Interrupt")
-        break
+    ser.flushInput()
+    response = ser.readline()
+    print(response)

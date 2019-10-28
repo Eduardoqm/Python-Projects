@@ -1,6 +1,4 @@
 import serial
-#from tkinter import *
-#import tkinter.messagebox
 
 port = "COM4"
 ser = serial.Serial(port,9600)
