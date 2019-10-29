@@ -23,7 +23,7 @@ while True:
         df_add = [df, df_input]
         df_master = pd.concat(df_add, ignore_index=True)
         df = df_master
-        df.to_csv('Test_COM4.csv')
+        df.to_csv('Soil_Moisture.csv')
 
     except:
         print("Connection Interrupt")

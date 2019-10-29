@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib.dates as mdates
 
-data = pd.read_csv("Test_COM4.csv")
+data = pd.read_csv("Soil_Moisture.csv")
         
 data.plot(kind='line',x='Time',y='Moisture',color='red')
 plt.title('Soil Moisture')
