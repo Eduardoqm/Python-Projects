@@ -1,6 +1,7 @@
 import serial
 import time
 import pandas as pd
+from datetime import datetime
 
 global df
 port = "COM4"
@@ -15,11 +16,12 @@ while True:
         decoded_bytes = float(ser_bytes[0:len(ser_bytes)-2].decode("utf-8"))
         print(decoded_bytes)
 
-        t = time.localtime()
-        current_time = time.strftime("%H:%M:%S", t)
+        now = datetime.now()
+        current_time = now.strftime("%Y-%m-%d %H:%M:%S")
 
+        
         #df_input = pd.DataFrame({'Time':[float(time.time())], 'Moisture':[float(decoded_bytes)]})
-        df_input = pd.DataFrame({'Time':[float(current_time)], 'Moisture':[float(decoded_bytes)]})
+        df_input = pd.DataFrame({'Time':[current_time], 'Moisture':[float(decoded_bytes)]})
         df_add = [df, df_input]
         df_master = pd.concat(df_add, ignore_index=True)
         df = df_master
