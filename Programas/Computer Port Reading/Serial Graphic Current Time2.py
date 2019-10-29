@@ -6,35 +6,18 @@ import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib.dates as mdates
 
-global df
-port = "COM4"
-ser = serial.Serial(port, 9600, timeout=3.0)
-ser.flushInput()
-df = pd.DataFrame({'Time':[float(0)], 'Moisture':[float(0)]})
-a = 'iniciar plots'
+
 
 while True:
     try:
-        ser_bytes = ser.readline()
-        decoded_bytes = float(ser_bytes[0:len(ser_bytes)-2].decode("utf-8"))
-        print(decoded_bytes)
-
-        
-
-        now = datetime.now()
-        current_time = now.strftime("%Y-%m-%d %H:%M:%S")
-
-        df_input = pd.DataFrame({'Time':[current_time], 'Moisture':[float(decoded_bytes)]})
-        df_add = [df, df_input]
-        df_master = pd.concat(df_add, ignore_index=True)
-        df = df_master
-
+        global df
+        data = pd.read_csv("Test_COM4.csv")
         plt.close()
 
         df.plot(kind='line',x='Time',y='Moisture',color='red')
         plt.show(block=False)
         #plt.ion()
-        #plt.show()
+        #plt.show() 
 
     except:
         print("Keyboard Interrupt")
