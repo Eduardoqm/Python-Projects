@@ -7,7 +7,7 @@ global df
 port = "COM4"
 ser = serial.Serial(port, 9600, timeout=3.0)
 ser.flushInput()
-df = pd.DataFrame({'Time':[float(0)], 'Moisture':[float(0)]})
+df = pd.DataFrame({'Time':[float(0)], 'Data':[float(0)]})
 
 
 while True:
@@ -19,11 +19,11 @@ while True:
         current_time = now.strftime("%Y-%m-%d %H:%M:%S")
         print(current_time, '->', decoded_bytes, '%')
 
-        df_input = pd.DataFrame({'Time':[current_time], 'Moisture':[float(decoded_bytes)]})
+        df_input = pd.DataFrame({'Time':[current_time], 'Data':[float(decoded_bytes)]})
         df_add = [df, df_input]
         df_master = pd.concat(df_add, ignore_index=True)
         df = df_master
-        df.to_csv('Soil_Moisture.csv')
+        df.to_csv('Current_Data.csv')
 
     except:
         print("Connection Interrupt")
