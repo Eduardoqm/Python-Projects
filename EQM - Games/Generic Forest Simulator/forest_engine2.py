@@ -6,14 +6,14 @@ import time
 
 #Initial values -------------
 #Vegetations variables
-tree = int(100)
-lit = int(25000)
-nut = int(0)
+tree = float(100)
+lit = float(25000)
+nut = float(275)
 
 #Everionment variables
-mostair = int(100)
-mosts = int(100)
-temp = int(25)
+mostair = float(100)
+mosts = float(100)
+temp = float(25)
 
 #Logic engine
 while True:
@@ -28,9 +28,11 @@ while True:
     print('------------------------------------------------------------')
     print(' ')
     print('-------------------Ecossistem Command-----------------------')
-    tempv = int(input('Temp variation (input +5 to -5): '))
-    #mostairv = int(input('Air Moisture variation (input +10 to -10): '))
-    
+    tempv = float(input('Temp variation (input +2 to -2): '))
+    mostairv = float(input('Air Moisture variation (input +10 to -10): '))
+    temp = temp+tempv
+    mostair = mostair+mostairv
+
     if temp > 40 and mostair < 40 and mosts < 50:
         os.system('cls')
         print('ALERT FIRE CONDITIONS ARE DETECTED!!!')
@@ -55,15 +57,12 @@ while True:
         tree = int(100)
     
     else:
-        temp = temp+tempv
-        #mostair = mostair+mostairv
-    
         lit = (tree*10)*temp
         nut = ((lit*mosts)/tree)/100
 
         mostair = (tree/100)*(temp*4)
         mosts = mostair+(tree/10)
-        temp = (tree/temp)+temp
+        temp = tree/4
 
-        morten = (nut/2)/tree
+        morten = ((nut/2)/tree)/100
         tree = tree - morten 
