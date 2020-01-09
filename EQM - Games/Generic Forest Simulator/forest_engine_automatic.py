@@ -28,7 +28,7 @@ while True:
     print('--------------------------------------------------------------------------------')
     print(' ')
     print('-----------------------------Ecossistem Command---------------------------------')
-    tempv = float(input('Temp Regulation (input +5 to -5): '))
+    #tempv = float(input('Temp Regulation (input +5 to -5): '))
     #mostairv = int(input('Air Moisture variation (input +10 to -10): '))
     
     if tree <= 0.0:
@@ -83,7 +83,7 @@ while True:
         temp = 35
 
     else:
-        temp = temp+tempv
+        #temp = temp+tempv
         #mostair = mostair+mostairv
 
         temp = float((5/tree)+temp)
