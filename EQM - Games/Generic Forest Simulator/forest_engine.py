@@ -32,6 +32,7 @@ while True:
     #mostairv = int(input('Air Moisture variation (input +10 to -10): '))
     
     if tree <= 0.0:
+        tree = int(0)
         print('The forest die...')
         time.sleep(2)
         print('GAME OVER!!!')
