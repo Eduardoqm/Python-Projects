@@ -59,6 +59,9 @@ while True:
             3-Hard Memory
             ''')
 
+        else:
+            print('Back to map')
+
     elif local == 5:
         print('''
         1-Propulsion Engine
