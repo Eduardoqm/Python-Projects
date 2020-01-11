@@ -1,8 +1,12 @@
 #Spaceship Manage
 #Eduardo Q Marques 10/01/2020
 
+import os
+import time
+
 #Nave Runs
 while True:
+    os.system('cls')
     print('''
     Ship Locations
     -----------------------------------
@@ -17,6 +21,7 @@ while True:
 
     local = int(input('Choose a local: '))
     if local == 1:
+        os.system('cls')
         print('''
         1-Navegation panel
         2-Computer panel
@@ -26,43 +31,49 @@ while True:
         ''')
 
     elif local == 2:
+        os.system('cls')
         print('''
-        Oxigen generator
-        Carbon filters
-        Water recycler
-        Temperature regulations
-        exit
+        1-Oxigen generator
+        2-Carbon filters
+        3-Water recycler
+        4-Temperature regulations
+        5-exit
         ''')
     
     elif local == 3:
+        os.system('cls')
         print('Need to put something')
 
     elif local == 4:
+        os.system('cls')
         print('''
         1-Power regulators
         2-Distribution cables
         3-Hardware computer
+        4-exit
         ''')
-        res = int(input('Choose a piece: ')
+        res = int(input('Choose a piece: '))
 
         if res == 1:
+            os.system('cls')
             print('''
             1-Swith off
             2-Restart
             3-Change fuse
+            4-exit
             ''')
 
         elif res == 3:
+            os.system('cls')
             print('''
             1-Processors
             2-Memories
             3-Hard Memory
+            4-exit
             ''')
-
-        else:
-            print('Back to map')
-
+            
     elif local == 5:
+        os.system('cls')
         print('''
         1-Propulsion Engine
 
@@ -75,4 +86,6 @@ while True:
         General switch
         Coolers
         Switch panel
+
+        4-exit
         ''')    
