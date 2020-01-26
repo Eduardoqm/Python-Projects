@@ -31,6 +31,7 @@ def civfight():
         enemy = enemy - a
         civ = civ - 25
         print('Your troop has won this battle!')
+        print('{} soldiers enemies die...'.format(a))
         time.sleep(2)
     else: 
         b = randint(80,100)
@@ -42,11 +43,12 @@ def civfight():
 def soldfight():
     global enemy
     global sold
-    if d100() >= 20:
+    if d100() >= 50:
         a = randint(30,50)
         enemy = enemy - a
         sold = sold - 20
         print('Your troop has won this battle!')
+        print('{} soldiers enemies die...'.format(a))
         time.sleep(2)
     else: 
         b = randint(1,100)
@@ -58,11 +60,12 @@ def soldfight():
 def tsoldfight():
     global enemy
     global tsold
-    if d100() >= 10:
+    if d100() >= 40:
         a = randint(50,100)
         enemy = enemy - a
         tsold = tsold - 5
         print('Your troop has won this battle!')
+        print('{} soldiers enemies die...'.format(a))
         time.sleep(2)
     else: 
         b = randint(1,100)
@@ -74,10 +77,11 @@ def tsoldfight():
 def tankfight():
     global enemy
     global tank
-    if d100() >= 20:
+    if d100() >= 35:
         a = randint(50,200)
         enemy = enemy - a
-        print('Your troop has won this battle!')
+        print('Your tank has won this battle!')
+        print('{} soldiers enemies die...'.format(a))
         time.sleep(2)
     else: 
         tank = tank - 1
@@ -87,10 +91,12 @@ def tankfight():
 def rockfight():
     global enemy
     global rocket
-    if d100() >= 10:
+    if d100() >= 20:
         a = randint(200,500)
         enemy = enemy - a
-        print('Your troop has won this battle!')
+        rocket = rocket - 1
+        print('Your rocket has destroyed a base!')
+        print('{} soldiers enemies die...'.format(a))
         time.sleep(2)
     else: 
         rocket = rocket - 1
@@ -100,10 +106,11 @@ def rockfight():
 def planefight():
     global enemy
     global plane
-    if d100() >= 10:
+    if d100() >= 20:
         a = randint(300,1000)
         enemy = enemy - a
         print('Your troop has won this battle!')
+        print('{} soldiers enemies die...'.format(a))
         time.sleep(2)
     else: 
         plane = plane - 1
@@ -125,6 +132,7 @@ while True:
     Soldiers: {} | Elite Soldiers: {}
 
     Tanks: {} | Rockets: {} | Airplanes: {}
+    
 
     [ {} population: {} ]
 
