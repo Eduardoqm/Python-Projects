@@ -179,7 +179,7 @@ def jog1():
 
 
 #Ask name
-os.system('clear')
+os.system('clr')
 print('Welcome to EQM Operation System')
 time.sleep(1)
 print('Version alpha - 2019')
@@ -192,7 +192,7 @@ print('Hi {}!'.format(user))
 app = 0
 while True:
     time.sleep(1)
-    os.system('clear')
+    os.system('clr')
     print(' ')
     print('=-=-=-=-=-=-=-=-=-=MENU-=-=-=-=-=-=-=-=-=-=')
     print('''{}, choose a app:
@@ -207,7 +207,7 @@ while True:
     
     if app == 1:
         opener ="open" if sys.platform == "darwin" else "xdg-open"
-        subprocess.call([opener, '/home/apocalipse/Documents/Programas/EQM-OS/Softwares-starts/New text.odt'])
+        subprocess.call([opener, '/C:/Users/Eduardo Q Marques/Documents/My Jobs/Programas/Python/Python-Projects/Programas/EQM-OS/Softwares-starts/New text.odt'])
         
     elif app == 2:
         kalk()
@@ -223,12 +223,12 @@ while True:
         webbrowser.open('http://www.duckduckgo.com')
         
     elif app == 6:
-        os.system('clear')
+        os.system('clr')
         print('Thank you {} for use EQM-OS...Bye!'.format(user))
         time.sleep(2)
         quit()
         
     else:
-        os.system('clear')
+        os.system('clr')
         print('App not find!')
         time.sleep(2)
