@@ -1,6 +1,6 @@
 #EQM - OS
 #Demo start
-#By Eduardo Q Marques  29-dez-2019
+#By Eduardo Q Marques  03-feb-2020
 
 import time
 import os, sys, subprocess
@@ -182,7 +182,7 @@ def jog1():
 os.system('cls')
 print('Welcome to EQM Operation System')
 time.sleep(1)
-print('Version alpha - 2019')
+print('Version alpha - 2019/2020')
 print(' ')
 time.sleep(1)
 user = input('What is your name? ')
@@ -206,15 +206,17 @@ while True:
     app = int(input('What you need?' ))
     
     if app == 1:
-        opener ="open" if sys.platform == "darwin" else "xdg-open"
-        subprocess.call([opener, 'C:/Users/Eduardo Q Marques/Documents/My Jobs/Programas/Python/Python-Projects/Programas/EQM-OS/Softwares-starts/New text.odt'])
+        print('Waiting a little...')
+        os.system('start New_text.docx')
+        time.sleep(2)
         
     elif app == 2:
         kalk()
         
     elif app == 3:
-        opener ="open" if sys.platform == "darwin" else "xdg-open"
-        subprocess.call([opener, '/home/apocalipse/Documents/Programas/EQM-OS/Softwares-starts/New Table.ods'])
+        print('Waiting a little...')
+        os.system('start New_table.xlsx')
+        time.sleep(2)
         
     elif app == 4:
         jog1()
